@@ -1,4 +1,4 @@
-class Dashing.Gs extends Dashing.Widget
+class Dashing.Trends extends Dashing.Widget
   ready: ->
     if @get('unordered')
       $(@node).find('ol').remove()

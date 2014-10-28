@@ -9,6 +9,6 @@ SCHEDULER.every '1m' do
         request = Net::HTTP::Get.new uri
         response = http.request request
         google_plus_hash = JSON.parse(response.body);
-        send_event('gp', { items: google_plus_hash['results']['collection1'], name: google_plus_hash['name'], frequency: google_plus_hash['frequency'] })
+        send_event('googleplustrends', { items: google_plus_hash['results']['collection1'], name: google_plus_hash['name'], frequency: google_plus_hash['frequency'] })
     }
 end

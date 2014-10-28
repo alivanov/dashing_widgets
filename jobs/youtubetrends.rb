@@ -9,6 +9,6 @@ SCHEDULER.every '1m' do
         request = Net::HTTP::Get.new uri
         response = http.request request
         youtube_hash = JSON.parse(response.body);
-        send_event('yt', { items: youtube_hash['results']['collection1'], name: youtube_hash['name'], frequency: youtube_hash['frequency'] })
+        send_event('youtubetrends', { items: youtube_hash['results']['collection1'], name: youtube_hash['name'], frequency: youtube_hash['frequency'] })
     }
 end

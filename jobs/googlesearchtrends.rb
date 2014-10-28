@@ -10,11 +10,16 @@ SCHEDULER.every '15m' do
         response = http.request request
         google_search_hash = JSON.parse(response.body);
         
+        # rename key 'property1' to 'Trends' to make the widget reusable
         google_search_hash['results']['collection1'].each {|x| 
             x['Trends'] = x['property1']
             x.delete('property1')
         }
-        
-        send_event('gs', { items: google_search_hash['results']['collection1'], name: google_search_hash['name'], frequency: google_search_hash['frequency'] })
+
+        # 'google_search_trends' --> 'Google Search Trends'
+        google_search_hash['name'].gsub!('_', ' ')
+        google_search_hash['name'] = google_search_hash['name'].split.map(&:capitalize).join(' ')
+
+        send_event('googlesearchtrends', { items: google_search_hash['results']['collection1'], name: google_search_hash['name'], frequency: google_search_hash['frequency'] })
     }
 end
