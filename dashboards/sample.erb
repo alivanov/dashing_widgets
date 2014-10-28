@@ -1,0 +1,20 @@
+<script type='text/javascript'>
+$(function() {
+  Dashing.numColumns = 2
+});
+</script>
+
+<% content_for :title do %>My super sweet dashboard<% end %>
+<div class="gridster">
+  <ul>
+    <li data-row="1" data-col="2" data-sizex="1" data-sizey="1">
+      <div data-id="googlesearchtrends" data-view="Trends" data-unordered="true" data-title="Google search feed" data-moreinfo="Google search feed"></div>
+    </li>
+    <li data-row="1" data-col="1" data-sizex="1" data-sizey="1">
+      <div data-id="googleplustrends" data-view="Trends" data-unordered="true" data-title="Google Plus Trends" data-moreinfo="Google Plus Trends"></div>
+    </li>
+    <li data-row="2" data-col="1" data-sizex="2" data-sizey="1">
+      <div data-id="youtubetrends" data-view="Trends" data-unordered="true" data-title="YouTube Trends" data-moreinfo="YouTube Trends"></div>
+    </li>
+  </ul>
+</div>
